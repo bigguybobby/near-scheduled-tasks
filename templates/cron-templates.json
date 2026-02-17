@@ -1,0 +1,32 @@
+{
+  "templates": [
+    {
+      "name": "daily-transfer",
+      "description": "Daily NEAR token transfer",
+      "cron": "0 9 * * *",
+      "action_type": "transfer",
+      "params": {"sender": "alice.near", "receiver": "bob.near", "amount": "1.0"}
+    },
+    {
+      "name": "hourly-price-check",
+      "description": "Check NEAR price every hour",
+      "cron": "0 * * * *",
+      "action_type": "price_check",
+      "params": {"tokens": ["near", "aurora"]}
+    },
+    {
+      "name": "weekly-contract-call",
+      "description": "Weekly contract method invocation",
+      "cron": "0 12 * * 1",
+      "action_type": "contract_call",
+      "params": {"contract": "example.near", "method": "claim_rewards", "args": {}}
+    },
+    {
+      "name": "daily-staking-check",
+      "description": "Daily staking pool status check",
+      "cron": "0 8 * * *",
+      "action_type": "contract_call",
+      "params": {"contract": "pool.near", "method": "get_account", "args": {"account_id": "user.near"}}
+    }
+  ]
+}
